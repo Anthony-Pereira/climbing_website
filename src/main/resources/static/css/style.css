@@ -1,0 +1,21 @@
+ /*login*/
+ 	#login {
+ 		text-align:right;
+ 	}
+ 
+  /*login button*/
+ 	#login a {
+ 		margin:3px;
+ 	}
+ 
+ /* Footer */
+      footer.row {
+        margin: 20px 0 40px 0;
+      }
+      
+      footer .btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        padding-top: 10px;
+      }
