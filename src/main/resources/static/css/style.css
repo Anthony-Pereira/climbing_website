@@ -1,14 +1,24 @@
- /*login*/
+/* header image */
+ 	#header_img img {
+ 		/*margin-top:5px;*/
+ 		margin-top:5px;
+ 		margin-bottom:5px;
+ 		border: solid;
+ 		width:100%;
+ 	}
+ 
+/* login */
  	#login {
  		text-align:right;
  	}
  
-  /*login button*/
+/* login button */
  	#login a {
  		margin:3px;
+ 		border:solid 1px grey;
  	}
  
- /* Footer */
+/* footer */
       footer.row {
         margin: 20px 0 40px 0;
       }
