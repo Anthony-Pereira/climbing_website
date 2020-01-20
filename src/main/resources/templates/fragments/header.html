@@ -1,55 +1,40 @@
 <meta charset="utf-8">
 
 <header th:fragment= "header">
-
-<div class="container-fluid" id="header_img">
-	<img alt="en-tête" src="img/header_animal.jpg">
-</div>
 	<div class="container-fluid">
-		<nav class = "navbar navbar-expand-md navbar-dark bg-secondary" >
-	    	<a class = "navbar-brand" href ="index.html" title="accéder à la page d'accueil" alt="logo accueil"><img alt="logo du site" src="../img/logo_website.png"></a>
-	        	<button class = "navbar-toggler" type = "button" data-toggle = "collapse" 
-	            	data-target = "#navbarSupportedContent" 
-	                aria-controls = "navbarSupportedContent" aria-expanded = "false" 
-	                aria-label = "Toggle navigation">
-	            	<span class = "navbar-toggler-icon"></span>
-	            </button>
-	            
-	            <div class = "collapse navbar-collapse row" id = "navbarSupportedContent">
-	            	<div class="col-md-8 col-lg-8">
-		            	<ul class = "navbar-nav mr-auto">
-		                	<li class = "nav-item">
-		                    	<a class = "nav-link" href = "site.html">Sites</a>
-		                  	</li>
-		                  	<li class = "nav-item">
-		                     	<a class = "nav-link" href = "association.html">Association</a>
-		                  	</li>
-		                  	<li class = "nav-item">
-		                     	<a class = "nav-link" href = "evenement.html">Evènements</a>
-		                  	</li>
-		                  	<li class = "nav-item">
-		                     	<a class = "nav-link" href = "contact.html">Contact</a>
-		                  	</li>
-		                </ul>
-		           	</div> 
-		           		<div class="col-md-4 col-lg-4" id="login">
-		                	<a class="btn btn-primary" href="#">s'inscrire</a>
-		                	<a class="btn btn-primary" href="#">se connecter</a>
-		                </div>   
-	            </div>
-	     </nav>
-	     <nav class="navbar navbar-light">
-		 	<div class="row">
-				<form class="form-inline">
-			    	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			    	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			  	</form>
-				<div class="dropdown-divider"></div>	
-			</div>	
-		 </nav>
-	     <div>
-	     	<h2  class = "mt-4">Bienvenue sur le site des amis de l'escalade!</h2> <br>
-		 	<h5 >Ce site est dedié aux amoureux de cette discipline qui souhaite trouver leur prochain spot.</h5>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="header">
+	  		<a class="navbar-brand" href="index.html" title="accéder à la page d'accueil" alt="logo accueil"><img alt="logo du site" src="../img/logo_escalade.png"></a>
+		  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+		    		<span class="navbar-toggler-icon"></span>
+		  		</button>
+					<div class="collapse navbar-collapse" id="navbarColor01">
+				    	<ul class="navbar-nav mr-auto">
+				      		<li class="nav-item active">
+				        		<a class="nav-link" href="site.html">Sites <span class="sr-only">(current)</span></a>
+				      		</li>
+				      		<li class="nav-item">
+				        		<a class="nav-link" href="association.html">Association</a>
+				      		</li>
+				      		<li class="nav-item">
+				        		<a class="nav-link" href="evenement.html">Evènements</a>
+				      		</li>
+				     		<li class="nav-item">
+				        		<a class="nav-link" href="contact.html">Contact</a>
+				      		</li>
+				    	</ul>
+					    <form class="form-inline my-2 my-lg-0">
+					    	<input class="form-control mr-sm-2" type="text" placeholder="Rechercher">
+					    	<button class="btn btn-secondary my-2 my-sm-0" type="submit"><img alt="rechercher" src="img/magnifying_glass.png"></button>
+					    	<a class="btn btn-secondary" href="#"><img alt="se connecter" src="img/logo_user.png"></a>
+					    </form>
+	  			    </div>
+		</nav>
+		<div class="container" id="main_img">
+		 	<img alt="en-tête" src="img/main_img.jpg">
+		 		<div>
+	     			<h2  class = "mt-4">Bienvenue sur le site des amis de l'escalade!</h2> <br>
+		 			<h5 >Ce site est dedié aux amoureux de cette discipline qui souhaitent trouver leur prochain spot.</h5>
+		 		</div> 
 		 </div> 
 	</div>
 </header>

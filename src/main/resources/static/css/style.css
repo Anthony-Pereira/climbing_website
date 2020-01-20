@@ -1,37 +1,20 @@
-/* header image */
- 	#header_img img {
- 		/*margin-top:5px;*/
- 		margin-top:5px;
- 		margin-bottom:5px;
- 		border: solid;
- 		width:100%;
- 	}
- 	
-/*nav logo*/
- 	.navbar-brand img {
- 		width:4rem;
- 		height:4rem;
- 	}
- 	
-/* login */
- 	#login {
- 		text-align:right;
- 	}
- 
-/* login button */
- 	#login a {
- 		margin:3px;
- 		border:solid 1px grey;
- 	}
- 
-/* footer */
-      footer.row {
-        margin: 20px 0 40px 0;
-      }
-      
-      footer .btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
-        padding-top: 10px;
-      }
+.nav-item .nav-link {
+	font-size:1rem;
+}
+
+.navbar-brand img {
+	width:8rem;
+}
+
+#main_img img {
+	width:100%;
+	margin-top:10px;
+}
+
+form a {
+	margin:10px;	
+}
+
+form img {
+	width:1rem;
+}
