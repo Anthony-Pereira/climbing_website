@@ -21,6 +21,46 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
+	@GetMapping ("/site")
+	public ModelAndView showSiteController () {
+		
+		String viewName = "site.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/association")
+	public ModelAndView showAssociationController () {
+		
+		String viewName = "association.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/evenement")
+	public ModelAndView showEventController () {
+		
+		String viewName = "event.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/contact")
+	public ModelAndView showContactController () {
+		
+		String viewName = "contact.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
 	@GetMapping ("/climbingForm")
 	public ModelAndView showClimbingControllerForm () {
 		

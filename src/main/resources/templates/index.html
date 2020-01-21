@@ -16,30 +16,33 @@
      
      
  		<header th:replace="fragments/header :: header"></header>
+ 		
+ 		<div class="container" id="main_img">
+		 	<img alt="en-tête" src="img/main_img.jpg">
+		 		<div>
+	     			<h2  class = "mt-4">Bienvenue sur le site des amis de l'escalade!</h2>
+	     			<br/>
+		 			<h5 >Ce site est dedié aux amoureux de cette discipline qui souhaitent trouver leur prochain spot.</h5>
+		 		</div> 
+		 </div> 
  	
  	<div class="container">
- 		
- 		<article>
- 		<br/>
-			<h3>Lorem Ipsum</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, 
-				dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
-				euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper.
-				Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor.
-				Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales.
-				Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum.
-				Maecenas adipiscing ante non diam sodales hendrerit.Ut velit mauris, egestas sed, gravida nec, ornare ut, mi.
-				Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin.Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh,
-				in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue.Integer id felis. Curabitur aliquet pellentesque diam.
-				Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula.
-				Nulla et sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat,
-				augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna.Aliquam convallis sollicitudin purus. 
-				Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. 
-				Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo.
-				Suspendisse cursus rutrum augue.Nulla tincidunt tincidunt mi. Curabitur iaculis, lorem vel rhoncus faucibus, 
-			    felis magna fermentum augue, et ultricies lacus lorem varius purus. Curabitur eu amet.
-			 	</p>
-		</article>
+ 		<section>
+	 		<article>
+	 		<br/>
+				<h3>Pour les non-initiés, voici quelques éléments du vocabulaire du grimpeur :</h3>
+					<ul class="list-group list-group-flush">
+	  					<li class="list-group-item">Un site ou spot, c’est un lieu où il est possible de grimper.</li>
+	  					<li class="list-group-item">Les sites peuvent être découpés en plusieurs secteurs qui regroupent un ensemble de voies.</li>
+	  					<li class="list-group-item">« Lao Tzeu l'a dit : il faut trouver la voie » : c’est le chemin à emprunter par le grimpeur pour arriver à destination : le haut de la voie.</li>
+	  					<li class="list-group-item">si la voie est découpée en plusieurs « parties » à grimper les unes après les autres, ces parties s’appellent des longueurs et on trouve un relai en haut de chaque longueur.</li>
+	  					<li class="list-group-item">Quand le grimpeur arrive en haut de la longueur, c’est à ce relai qu’il se vache, c’est à dire qu’il s’y accroche, à l’aide de sa vache ou longe (corde nouée sur le baudrier du grimpeur et équipée d’un mousqueton à verrouillage).</li>
+	  					<li class="list-group-item">Les points ou spits sont des ancrages fixes que l’on trouve dans les voies dites « équipées » et qui permettent au grimpeur de s’assurer au fur et à mesure de sa progression, à l’aide de dégaines</li>
+	  					<li class="list-group-item">La cotation d’une longueur ou d’une voie, représente sa difficulté. En France, le système de cotation va, en gros, par ordre croissant de difficulté, de 3 à 9c. Le chiffre est en quelque sorte, l’unité principale et la lettre une sous-unité (de « a » à « c »)</li>
+	  					<li class="list-group-item">Un topo est un recueil contenant toutes les informations utiles sur les sites d’escalade d’une région (les secteurs, les voies, leur hauteur, leur cotation, le nombre de points…).</li>
+	  				</ul>
+			</article>
+		</section>
 		
 		<footer th:replace="fragments/footer :: footer"></footer>
 		
