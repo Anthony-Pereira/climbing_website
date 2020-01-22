@@ -13,24 +13,23 @@
 </head>
 
 <body>
-     
-     
- 		<header th:replace="fragments/header :: header"></header>
- 		
- 		<div class="container" id="main_img">
-		 	<img alt="en-tête" src="img/main_img.jpg">
-		 		<div>
-	     			<h2  class = "mt-4">Bienvenue sur le site des amis de l'escalade!</h2>
-	     			<br/>
-		 			<h5 >Ce site est dedié aux amoureux de cette discipline qui souhaitent trouver leur prochain spot.</h5>
-		 		</div> 
-		 </div> 
+	<header th:replace="fragments/header :: header"></header>
+	
+		<div class="container-fluid" id="main_title">
+			<h2 class="d-flex justify-content-center">Bienvenue sur le site des amis de l'escalade !</h2>
+			<br/>
+			<h5 class="d-flex justify-content-center">Ce site est dedié aux amoureux de cette discipline qui souhaitent trouver leur prochain spot.</h5>	
+		</div> 	
+		
+		<div class="container" id="main_img">
+			<img alt="en-tête" src="img/main_img.jpg">		 		
+		</div>
  	
  	<div class="container">
  		<section>
 	 		<article>
 	 		<br/>
-				<h3>Pour les non-initiés, voici quelques éléments du vocabulaire du grimpeur :</h3>
+				<h4>Pour les non-initiés, voici quelques éléments du vocabulaire du grimpeur :</h4>
 					<ul class="list-group list-group-flush">
 	  					<li class="list-group-item">Un site ou spot, c’est un lieu où il est possible de grimper.</li>
 	  					<li class="list-group-item">Les sites peuvent être découpés en plusieurs secteurs qui regroupent un ensemble de voies.</li>

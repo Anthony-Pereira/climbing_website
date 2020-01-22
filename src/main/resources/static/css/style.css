@@ -2,13 +2,25 @@
 	font-size:1rem;
 }
 
+.nav-link img {
+	width:3rem;
+}
+
 .navbar-brand img {
 	width:8rem;
+	border-radius:1rem;
+}
+
+#main_title h2 {
+	font-size:3rem;
+}
+
+#main_img {
+	margin-top:2rem;
 }
 
 #main_img img {
 	width:100%;
-	margin-top:10px;
 }
 
 form a {
