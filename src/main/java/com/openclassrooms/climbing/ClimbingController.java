@@ -61,20 +61,54 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
-	@GetMapping ("/climbingForm")
-	public ModelAndView showClimbingControllerForm () {
+	@GetMapping ("/vocabulary")
+	public ModelAndView showVocabularyController () {
 		
-		String viewName = "climbingForm";
+		String viewName = "vocabulary.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
 		return new ModelAndView(viewName,model);
 	}
 	
-	@PostMapping ("/climbingForm")
-	public ModelAndView submitClimbingControllerForm () {
+	@GetMapping ("/login")
+	public ModelAndView showLoginController () {
 		
-		return null;
+		String viewName = "formSignIn.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/register")
+	public ModelAndView showRegisterController () {
+		
+		String viewName = "formSignUp.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@PostMapping ("/formSignIn")
+	public ModelAndView showFormSignInController () {
+		
+		String viewName = "formSignIn.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@PostMapping ("/formSignUp")
+	public ModelAndView showFormSignUpController () {
+		
+		String viewName = "formSignUp.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
 	}
 
 }
