@@ -53,3 +53,13 @@ form img {
 #social_button img {
 	width:100%;
 }
+
+#signature a {
+	text-decoration: none;
+	color:black;
+}
+
+#signature a:hover {
+	text-decoration: none;
+	color:#0ace34;
+}

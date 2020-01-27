@@ -51,16 +51,6 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
-	@GetMapping ("/contact")
-	public ModelAndView showContactController () {
-		
-		String viewName = "contact.html";
-		
-		Map<String,Object> model = new HashMap<String,Object>();
-		
-		return new ModelAndView(viewName,model);
-	}
-	
 	@GetMapping ("/vocabulary")
 	public ModelAndView showVocabularyController () {
 		
@@ -71,10 +61,20 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
-	@GetMapping ("/privacyPolicy")
-	public ModelAndView showPrivacyPolicyController () {
+	@GetMapping ("/aboutUs")
+	public ModelAndView showAboutUsController () {
 		
-		String viewName = "privacyPolicy.html";
+		String viewName = "aboutUs.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/contact")
+	public ModelAndView showContactController () {
+		
+		String viewName = "contact.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
@@ -85,6 +85,16 @@ public class ClimbingController {
 	public ModelAndView showTermOfUseController () {
 		
 		String viewName = "termOfUse.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/privacyPolicy")
+	public ModelAndView showPrivacyPolicyController () {
+		
+		String viewName = "privacyPolicy.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
