@@ -34,3 +34,22 @@ form a {
 form img {
 	width:1rem;
 }
+
+#footer_menu a {
+	color:white;
+	text-decoration: none;
+}
+
+#footer_menu a:hover {
+	color : #9f9f9d;
+}
+
+#social_button li {
+	height:2rem;
+	width:2rem;
+	margin:5px;
+}
+
+#social_button img {
+	width:100%;
+}

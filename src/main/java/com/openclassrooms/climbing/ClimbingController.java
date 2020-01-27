@@ -71,6 +71,26 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
+	@GetMapping ("/privacyPolicy")
+	public ModelAndView showPrivacyPolicyController () {
+		
+		String viewName = "privacyPolicy.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@GetMapping ("/termOfUse")
+	public ModelAndView showTermOfUseController () {
+		
+		String viewName = "termOfUse.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
 	@GetMapping ("/login")
 	public ModelAndView showLoginController () {
 		
