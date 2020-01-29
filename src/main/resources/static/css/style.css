@@ -31,7 +31,7 @@ form a {
 	margin:10px;	
 }
 
-form img {
+#navbarHeader img {
 	width:1rem;
 }
 
@@ -61,5 +61,5 @@ form img {
 
 #signature a:hover {
 	text-decoration: none;
-	color:#0ace34;
+	color:#99cc33;
 }

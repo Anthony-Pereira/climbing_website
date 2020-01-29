@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class ClimbingController {
@@ -61,6 +62,16 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
+	@GetMapping ("/listing")
+	public ModelAndView showListingController () {
+		
+		String viewName = "listing.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		return new ModelAndView(viewName,model);
+	}
+	
 	@GetMapping ("/aboutUs")
 	public ModelAndView showAboutUsController () {
 		
@@ -101,44 +112,52 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
-	@GetMapping ("/login")
-	public ModelAndView showLoginController () {
+	@GetMapping ("/showSignInForm")
+	public ModelAndView showSignInFormController () {
 		
-		String viewName = "formSignIn.html";
+		String viewName = "showSignInForm.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
+		
+		model.put("climbingItem", new ClimbingItem());
 		
 		return new ModelAndView(viewName,model);
 	}
 	
-	@GetMapping ("/register")
-	public ModelAndView showRegisterController () {
+	@PostMapping ("/showSignInForm")
+	public ModelAndView submitSignInFormController (ClimbingItem climbingItem) {
 		
-		String viewName = "formSignUp.html";
+		/*climbingItem.setId(index++);
+		  climbingItems.add(climbingItem);*/
 		
-		Map<String,Object> model = new HashMap<String,Object>();
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("/index");
 		
-		return new ModelAndView(viewName,model);
+		return new ModelAndView(redirect);
 	}
 	
-	@PostMapping ("/formSignIn")
-	public ModelAndView showFormSignInController () {
+	@GetMapping ("/showSignUpForm")
+	public ModelAndView showSignUpFormController () {
 		
-		String viewName = "formSignIn.html";
+		String viewName = "showSignUpForm.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
+		model.put("climbingItem", new ClimbingItem());
+		
 		return new ModelAndView(viewName,model);
-	}
+	}		
 	
-	@PostMapping ("/formSignUp")
-	public ModelAndView showFormSignUpController () {
+	@PostMapping ("/showSignUpForm")
+	public ModelAndView submitSignUpFormController (ClimbingItem climbingItem) {
 		
-		String viewName = "formSignUp.html";
+		/*climbingItem.setId(index++);
+		  climbingItems.add(climbingItem);*/
 		
-		Map<String,Object> model = new HashMap<String,Object>();
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("/index");
 		
-		return new ModelAndView(viewName,model);
+		return new ModelAndView(redirect);
 	}
 
 }
