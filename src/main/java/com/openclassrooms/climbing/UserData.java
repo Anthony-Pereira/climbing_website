@@ -1,12 +1,20 @@
 package com.openclassrooms.climbing;
 
-public class ClimbingItem {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class UserData {
 	
+	public UserData() {}; 
+	
+	@Id @GeneratedValue
+	private Integer id;
 	private String name;
 	private String surname;
 	private String email;
 	private String password;
-	private Integer id;
 	
 	public String getName() {
 		return name;
@@ -38,7 +46,4 @@ public class ClimbingItem {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	public ClimbingItem() {}; 
-
 }

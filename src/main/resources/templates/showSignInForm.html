@@ -27,7 +27,7 @@
 							<h1>Se connecter</h1>
 						</div>
 					</div>
-	                <form method="post" action="#">
+	                <form action="#" method="post" th:action="@{/showSignInForm}" th:object="${climbingItem}">
 						<div class="form-group">
 	                    	<label for="email">Adresse email</label>
 	                        <input type="email" name="email" id="email" class="form-control"  aria-describedby="emailHelp" placeholder="Entre votre adresse email">
@@ -55,7 +55,7 @@
 	                    <div class="form-group">
 	                    	<p class="text-center">Vous n'avez pas de compte ?<a href="showSignUpForm" id="signup">S'inscrire</a></p>
 	                    </div>
-	                </form>  
+	                </form>
 				</div>
 			</div>
 		</div>

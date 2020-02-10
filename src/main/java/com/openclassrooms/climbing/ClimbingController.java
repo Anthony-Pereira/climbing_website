@@ -112,30 +112,6 @@ public class ClimbingController {
 		return new ModelAndView(viewName,model);
 	}
 	
-	@GetMapping ("/showSignInForm")
-	public ModelAndView showSignInFormController () {
-		
-		String viewName = "showSignInForm.html";
-		
-		Map<String,Object> model = new HashMap<String,Object>();
-		
-		model.put("climbingItem", new ClimbingItem());
-		
-		return new ModelAndView(viewName,model);
-	}
-	
-	@PostMapping ("/showSignInForm")
-	public ModelAndView submitSignInFormController (ClimbingItem climbingItem) {
-		
-		/*climbingItem.setId(index++);
-		  climbingItems.add(climbingItem);*/
-		
-		RedirectView redirect = new RedirectView();
-		redirect.setUrl("/index");
-		
-		return new ModelAndView(redirect);
-	}
-	
 	@GetMapping ("/showSignUpForm")
 	public ModelAndView showSignUpFormController () {
 		
@@ -143,21 +119,38 @@ public class ClimbingController {
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
-		model.put("climbingItem", new ClimbingItem());
+		model.put("userData", new UserData());
 		
 		return new ModelAndView(viewName,model);
 	}		
 	
 	@PostMapping ("/showSignUpForm")
-	public ModelAndView submitSignUpFormController (ClimbingItem climbingItem) {
+	public ModelAndView submitSignUpFormController (UserData userData) {
 		
-		/*climbingItem.setId(index++);
-		  climbingItems.add(climbingItem);*/
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("/showSignInForm");
+		
+		return new ModelAndView(redirect);
+	}
+	
+	@GetMapping ("/showSignInForm")
+	public ModelAndView showSignInFormController () {
+		
+		String viewName = "showSignInForm.html";
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		model.put("userData", new UserData());
+		
+		return new ModelAndView(viewName,model);
+	}
+	
+	@PostMapping ("/showSignInForm")
+	public ModelAndView submitSignInFormController (UserData userData) {
 		
 		RedirectView redirect = new RedirectView();
 		redirect.setUrl("/index");
 		
 		return new ModelAndView(redirect);
 	}
-
 }
