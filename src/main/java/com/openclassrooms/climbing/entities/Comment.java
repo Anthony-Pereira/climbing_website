@@ -1,4 +1,4 @@
-package com.openclassrooms.climbing;
+package com.openclassrooms.climbing.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ public class Comment {
 	public Comment() {};
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String title_comment;
 	private String message;

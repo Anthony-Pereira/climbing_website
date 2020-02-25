@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.openclassrooms.climbing.entities.User;
+
 @Controller
 public class ClimbingController {
 	

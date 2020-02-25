@@ -1,4 +1,4 @@
-package com.openclassrooms.climbing;
+package com.openclassrooms.climbing.entities;
 
 import java.util.Collection;
 
@@ -14,7 +14,7 @@ public class Topo {
 	public Topo() {};
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String titleTopo;
 	private String description;

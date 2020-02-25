@@ -1,4 +1,4 @@
-package com.openclassrooms.climbing;
+package com.openclassrooms.climbing.entities;
 
 import java.util.Collection;
 
@@ -17,7 +17,7 @@ public class User {
 	public User() {}; 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String login;
 	private String password;
