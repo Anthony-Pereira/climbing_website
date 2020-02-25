@@ -119,13 +119,13 @@ public class ClimbingController {
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
-		model.put("userData", new UserData());
+		model.put("user", new User());
 		
 		return new ModelAndView(viewName,model);
 	}		
 	
 	@PostMapping ("/showSignUpForm")
-	public ModelAndView submitSignUpFormController (UserData userData) {
+	public ModelAndView submitSignUpFormController (User userData) {
 		
 		RedirectView redirect = new RedirectView();
 		redirect.setUrl("/showSignInForm");
@@ -140,13 +140,13 @@ public class ClimbingController {
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		
-		model.put("userData", new UserData());
+		model.put("user", new User());
 		
 		return new ModelAndView(viewName,model);
 	}
 	
 	@PostMapping ("/showSignInForm")
-	public ModelAndView submitSignInFormController (UserData userData) {
+	public ModelAndView submitSignInFormController (User userData) {
 		
 		RedirectView redirect = new RedirectView();
 		redirect.setUrl("/index");
