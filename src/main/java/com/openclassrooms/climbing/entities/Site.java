@@ -11,6 +11,15 @@ import javax.persistence.Inheritance;
 public class Site {
 	
 	public Site () {};
+
+	public Site(Integer id, String name, String location, Integer department, Boolean officielLesAmisDeLescalade) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.location = location;
+		this.department = department;
+		this.officielLesAmisDeLescalade = officielLesAmisDeLescalade;
+	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

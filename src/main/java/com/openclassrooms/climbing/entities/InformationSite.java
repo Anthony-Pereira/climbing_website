@@ -7,6 +7,15 @@ public class InformationSite extends Site {
 	
 	public InformationSite() {};
 
+	public InformationSite(String zone, Integer way, Integer lenght, Integer listing, String type) {
+		super();
+		this.zone = zone;
+		this.way = way;
+		this.lenght = lenght;
+		this.listing = listing;
+		this.type = type;
+	}
+
 	private String zone;
 	private Integer way;
 	private Integer lenght;

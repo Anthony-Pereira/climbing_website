@@ -11,10 +11,18 @@ public class Comment {
 	
 	public Comment() {};
 	
+	public Comment(Integer id, String title_comment, String message, User user) {
+		super();
+		this.id = id;
+		this.titleComment = title_comment;
+		this.message = message;
+		this.user = user;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String title_comment;
+	private String titleComment;
 	private String message;
 	
 	@ManyToOne
@@ -27,10 +35,10 @@ public class Comment {
 		this.id = id;
 	}
 	public String getTitle_comment() {
-		return title_comment;
+		return titleComment;
 	}
 	public void setTitle_comment(String title_comment) {
-		this.title_comment = title_comment;
+		this.titleComment = title_comment;
 	}
 	public String getMessage() {
 		return message;

@@ -13,6 +13,17 @@ public class Topo {
 	
 	public Topo() {};
 	
+	public Topo(Integer id, String titleTopo, String description, String location, String releaseDate,
+			Boolean available) {
+		super();
+		this.id = id;
+		this.titleTopo = titleTopo;
+		this.description = description;
+		this.location = location;
+		this.releaseDate = releaseDate;
+		this.available = available;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
