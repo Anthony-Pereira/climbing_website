@@ -21,33 +21,22 @@ public class TopoController {
 	@Autowired
 	TopoRepository topoRepository;
 	
-	Topo model2 = new Topo();
+	Topo topo = new Topo();
 	
 	@GetMapping ("/mySpace")
-	public ModelAndView showTopoController (Model model2) {
+	public ModelAndView showTopoController (Model topo) {
 		
 		
 		List<Topo> topos=topoRepository.findAll();
-		model2.addAttribute("topoList",topos);
-		model2.mergeAttributes(topos);
-		
+		topo.addAttribute("topoList",topos);
+
 		String viewName = "mySpace.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
 		model.put("topo", new Topo());
 		
-		//ModelAndView modelAndView = new ModelAndView("mySpace");
-		
-		//List<Topo> topos=topoRepository.findAll();
-		//model.addAttribute("topoList",topos);
-		
 		return new ModelAndView(viewName,model);
 	}
-	
-	/*public ModelAndView passParametersWithModelAndView() {
-	    ModelAndView modelAndView = new ModelAndView("viewPage");
-	    modelAndView.addObject("message", "Baeldung");
-	    return modelAndView;*/
 	
 	@PostMapping ("/mySpace")
 	public ModelAndView addTopoController (Topo topo) {
