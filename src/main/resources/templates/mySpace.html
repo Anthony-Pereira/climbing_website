@@ -20,15 +20,16 @@
 	<header th:replace="fragments/header :: header"></header>
 
 	<div class="container-fluid" id="mySpace_title">
-		<h1 class="text-center">Bienvenue dans votre espace</h1>
+		<h1 class="text-center text-dark">Bienvenue dans votre espace</h1>
 		<br />
 	</div>
 
 	<div class="container-fluid">
-		<div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 m-5">
+		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<h3 class="text-center mb-4">Ajouter un topo</h3>
-				<form th:action="@{/mySpace}" method="post" th:object="${topo}">
+				<h3 class="text-center text-dark mb-4">Ajouter un topo</h3>
+				<form th:action="@{/mySpace}" method="post"
+					th:object="${topoObject}">
 					<div class="form-row">
 						<div class="mr-3 my-2">
 							<label for="titleTopo">Titre</label> <input
@@ -61,36 +62,40 @@
 				</form>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<h3 class="text-center mb-4">Liste de mes topos</h3>
-				<table class="form-table">
-					<thead>
+				<table class="table">
+					<caption class="text-center text-dark mb-4" id="caption">Liste
+						de mes topos</caption>
+					<thead class="thead-light">
 						<tr>
 							<th>n°</th>
 							<th>Titre</th>
 							<th>lieu</th>
 							<th>Date de parution</th>
 							<th>Description</th>
+							<th></th>
 						</tr>
 					</thead>
-					<tfoot>
-						<tr>
-							<th>n°</th>						
-							<th>Titre</th>
-							<th>lieu</th>
-							<th>Date de parution</th>
-							<th>Description</th>
-						</tr>
-					</tfoot>
 					<tbody>
-					<tr th:each="t:${topoList}">
-						<td th:text="${t.id}">number</td>
-						<td th:text="${t.titleTopo}">Topo title</td>
-						<td th:text="${t.location}">Location</td>
-						<td th:text="${t.releaseDate}">Release date</td>
-						<!--<td th:text="${t.avalaible}">Avalaible</td>	  -->														
-					</tr>
+						<tr th:each="t:${listTopo}">
+							<td th:text="${t.id}">number</td>
+							<td th:text="${t.titleTopo}">Topo title</td>
+							<td th:text="${t.location}">Location</td>
+							<td th:text="${t.releaseDate}">Release date</td>
+							<td th:text="${t.description}">Description</td>
+							<td class="d-flex justify-content-center"><a
+								onclick="return confirm('Êtes-vous sûre de vouloir supprimer le topo enregistré ?')"
+								class="btn btn-secondary"
+								th:href="@{/delete(id=${t.id},currentPage=${currentPage})}">supprimer</a></td>
+						</tr>
 					</tbody>
 				</table>
+				<ul class="nav nav-pills">
+					<li class="nav-item"
+						th:class="${currentPage==status.index}?'active':''"
+						th:each="page,status:${pageNumber}"><a class="nav-link"
+						th:href="@{/mySpace(page=${status.index})}"
+						th:text="${status.index}"></a></li>
+				</ul>
 			</div>
 		</div>
 	</div>

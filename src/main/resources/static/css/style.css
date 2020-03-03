@@ -69,3 +69,9 @@ form a {
 	width:2rem;
 	margin:5px;
 }
+
+#caption{
+	caption-side:top;
+	font-size:1.5rem;
+	
+}

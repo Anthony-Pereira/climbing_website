@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -21,32 +24,45 @@ public class TopoController {
 	@Autowired
 	TopoRepository topoRepository;
 	
-	Topo topo = new Topo();
-	
 	@GetMapping ("/mySpace")
-	public ModelAndView showTopoController (Model topo) {
+	public ModelAndView showTopoController (Model topoObject,@RequestParam (name="page", defaultValue="0") int page) {
+				
+		Page<Topo> pageTopo=topoRepository.findAll(PageRequest.of(page,5));
+		topoObject.addAttribute("listTopo",pageTopo.getContent());
+		topoObject.addAttribute("pageNumber",new int [pageTopo.getTotalPages()]);
+		topoObject.addAttribute("currentPage",page);	
 		
-		
-		List<Topo> topos=topoRepository.findAll();
-		topo.addAttribute("topoList",topos);
-
 		String viewName = "mySpace.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
-		model.put("topo", new Topo());
+		model.put("topoObject", new Topo());
 		
 		return new ModelAndView(viewName,model);
 	}
 	
 	@PostMapping ("/mySpace")
-	public ModelAndView addTopoController (Topo topo) {
+	public ModelAndView addTopoController(Topo topoObject) {
 		
-		topoRepository.save(topo);
+		topoRepository.save(topoObject);
 		
 		RedirectView redirect = new RedirectView();
 		redirect.setUrl("/mySpace");
 		
 		return new ModelAndView(redirect);
+	}
+	
+	@GetMapping("/delete")
+	public ModelAndView deleteTopoController(Integer id,Integer currentPage) {
+		
+		topoRepository.deleteById(id);
+		
+		Map<String,Object> model = new HashMap<String,Object>();
+		model.put("topoObject",new Topo());
+		
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("/mySpace");
+		
+		return new ModelAndView(redirect,model);
 	}
 
 }
