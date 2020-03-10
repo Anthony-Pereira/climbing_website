@@ -1,77 +1,82 @@
 .nav-item .nav-link {
-	font-size:1rem;
+	font-size: 1rem;
 }
 
 .nav-link img {
-	width:3rem;
+	width: 3rem;
 }
 
 .navbar-brand img {
-	width:8rem;
-	border-radius:1rem;
+	width: 8rem;
+	border-radius: 1rem;
 }
 
 #main_title h1 {
-	font-size:3rem;
+	font-size: 3rem;
 }
 
 h2 {
-	font-size:2rem;
+	font-size: 2rem;
 }
 
 #main_img {
-	margin-top:2rem;
+	margin-top: 2rem;
 }
 
 #main_img img {
-	width:100%;
+	width: 100%;
 }
 
 form a {
-	margin:10px;	
+	margin: 10px;
 }
 
 #navbarHeader img {
-	width:1rem;
+	width: 1rem;
 }
 
 #footer_menu a {
-	color:white;
+	color: white;
 	text-decoration: none;
 }
 
 #footer_menu a:hover {
-	color : #9f9f9d;
+	color: #9f9f9d;
 }
 
 #social_button li {
-	height:2rem;
-	width:2rem;
-	margin:5px;
+	height: 2rem;
+	width: 2rem;
+	margin: 5px;
 }
 
 #social_button img {
-	width:100%;
+	width: 100%;
 }
 
 #signature a {
 	text-decoration: none;
-	color:black;
+	color: black;
 }
 
 #signature a:hover {
 	text-decoration: none;
-	color:#99cc33;
+	color: #99cc33;
 }
-
+/*
 #list_topo img{
 	height:2rem;
 	width:2rem;
 	margin:5px;
 }
+*/
+.img_myspace_return img {
+	height: 3rem;
+	width: 3rem;
+	margin: 1rem;
+}
 
-#caption{
-	caption-side:top;
-	font-size:1.5rem;
-	
+#caption {
+	caption-side: top;
+	font-size: 1.5rem;
 }

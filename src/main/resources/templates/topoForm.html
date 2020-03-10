@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+<!-- Meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width = device-width, initial-scale = 1, shrink-to-fit = no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<title>Les amis de l'escalade</title>
+</head>
+
+<body>
+
+	<!-- header -->
+	<header th:replace="fragments/header :: header"></header>
+	<!-- header -->
+
+	<div class="row m-3">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<h3 class="text-center text-dark mb-4">Ajouter un topo</h3>
+			<form th:action="@{/topoForm}" method="post"
+				th:object="${topoObject}">
+				<div class="form-row">
+					<div class="mr-3 my-2">
+						<label for="titleTopo">Titre</label> <input
+							th:field="*{titleTopo}" type="text" name="titleTopo"
+							class="form-control" id="titleTopo" aria-describedby="emailHelp"
+							placeholder="Insérer le titre">
+					</div>
+					<div class="mr-3 my-2">
+						<label for="location">Lieu</label> <input th:field="*{location}"
+							type="text" name="location" class="form-control" id="location"
+							aria-describedby="emailHelp" placeholder="insérer le lieu">
+					</div>
+					<div class="mr-3 my-2">
+						<label for="releaseDate">Date de parution</label> <input
+							th:field="*{releaseDate}" type="text" name="releaseDate"
+							id="releaseDate" class="form-control"
+							aria-describedby="emailHelp" placeholder="ex: 01/01/2000">
+					</div>
+				</div>
+				<div class="form-row my-2">
+					<label for="description">Description</label>
+					<textarea rows="5" th:field="*{description}" type="text"
+						name="description" class="form-control" id="description"
+						aria-describedby="emailHelp" placeholder="il était une fois ...">>
+							</textarea>
+				</div>
+				<div class="xs-12 sm-12 md-12 lg-12 text-center my-3">
+					<button type="submit" class=" btn my btn btn-primary tx-tfm">Validez</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+			<table class="table">
+				<caption class="text-center text-dark mb-4" id="caption">Liste
+					de mes topos</caption>
+				<thead class="thead-light">
+					<tr>
+						<th>n°</th>
+						<th>Titre</th>
+						<th>lieu</th>
+						<th>Date de parution</th>
+						<th>Description</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="t:${listTopo}">
+						<td th:text="${t.id}">id</td>
+						<td th:text="${t.titleTopo}">Titre du topo</td>
+						<td th:text="${t.location}">Location</td>
+						<td th:text="${t.releaseDate}">Date de parution</td>
+						<td th:text="${t.description}">Description</td>
+						<td class=" d-flex justify-content-center"><a
+							onclick="return confirm('Êtes-vous sûre de vouloir supprimer le topo enregistré ?')"
+							class="btn btn-primary"
+							th:href="@{/topoDelete(id=${t.id},currentPage=${currentPage})}">Supprimer</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<ul class="nav nav-pills">
+				<li class="nav-item"
+					th:class="${currentPage==status.index}?'active':''"
+					th:each="page,status:${pageNumber}"><a class="nav-link"
+					th:href="@{/topoForm(page=${status.index})}"
+					th:text="${status.index}"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="img_myspace_return">
+		<a href="mySpace" th:href="@{/mySpace}"><img
+			alt="retour sur mon espace" src="img/exit.png" title="retour sur mon espace"></a>
+	</div>
+
+	<!-- footer -->
+	<footer th:replace="fragments/footer :: footer"></footer>
+	<!-- footer -->
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>

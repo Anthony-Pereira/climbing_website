@@ -23,79 +23,28 @@
 		<h1 class="text-center text-dark">Bienvenue dans votre espace</h1>
 		<br />
 	</div>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<h3 class="text-center text-dark mb-4">Ajouter un topo</h3>
-				<form th:action="@{/mySpace}" method="post"
-					th:object="${topoObject}">
-					<div class="form-row">
-						<div class="mr-3 my-2">
-							<label for="titleTopo">Titre</label> <input
-								th:field="*{titleTopo}" type="text" name="titleTopo"
-								class="form-control" id="titleTopo" aria-describedby="emailHelp"
-								placeholder="Insérer le titre">
-						</div>
-						<div class="mr-3 my-2">
-							<label for="location">Lieu</label> <input th:field="*{location}"
-								type="text" name="location" class="form-control" id="location"
-								aria-describedby="emailHelp" placeholder="insérer le lieu">
-						</div>
-						<div class="mr-3 my-2">
-							<label for="releaseDate">Date de parution</label> <input
-								th:field="*{releaseDate}" type="text" name="releaseDate"
-								id="releaseDate" class="form-control"
-								aria-describedby="emailHelp" placeholder="ex: 01/01/2000">
-						</div>
+	
+	<div class="container">
+		<div class="row d-flex justify-content-center mt-3 mb-5">
+			<div class="card-deck">
+				<div class="card">
+					<img class="card-img-top" src="img/****.png" alt="Topo">
+					<div class="card-body">
+						<h5 class="card-title">Voir mes topos</h5>
+						<p class="card-text">Some quick example text</p>
+						<a href="topoForm" th:href="@{/topoForm}" class="btn btn-primary">allez
+							vers</a>
 					</div>
-					<div class="form-row my-2">
-						<label for="description">Description</label>
-						<textarea rows="5" th:field="*{description}" type="text"
-							name="description" class="form-control" id="description"
-							aria-describedby="emailHelp" placeholder="il était une fois ...">>
-							</textarea>
+				</div>
+				<div class="card">
+					<img class="card-img-top" src="img/****.png" alt="Site">
+					<div class="card-body">
+						<h5 class="card-title">Voir mes sites</h5>
+						<p class="card-text">Some quick example text</p>
+						<a href="siteForm" th:href="@{/siteForm}" class="btn btn-primary">allez
+							vers</a>
 					</div>
-					<div class="xs-12 sm-12 md-12 lg-12 text-center my-3">
-						<button type="submit" class=" btn my btn btn-primary tx-tfm">Validez</button>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-				<table class="table">
-					<caption class="text-center text-dark mb-4" id="caption">Liste
-						de mes topos</caption>
-					<thead class="thead-light">
-						<tr>
-							<th>n°</th>
-							<th>Titre</th>
-							<th>lieu</th>
-							<th>Date de parution</th>
-							<th>Description</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="t:${listTopo}">
-							<td th:text="${t.id}">number</td>
-							<td th:text="${t.titleTopo}">Topo title</td>
-							<td th:text="${t.location}">Location</td>
-							<td th:text="${t.releaseDate}">Release date</td>
-							<td th:text="${t.description}">Description</td>
-							<td class="d-flex justify-content-center"><a
-								onclick="return confirm('Êtes-vous sûre de vouloir supprimer le topo enregistré ?')"
-								class="btn btn-secondary"
-								th:href="@{/delete(id=${t.id},currentPage=${currentPage})}">supprimer</a></td>
-						</tr>
-					</tbody>
-				</table>
-				<ul class="nav nav-pills">
-					<li class="nav-item"
-						th:class="${currentPage==status.index}?'active':''"
-						th:each="page,status:${pageNumber}"><a class="nav-link"
-						th:href="@{/mySpace(page=${status.index})}"
-						th:text="${status.index}"></a></li>
-				</ul>
+				</div>
 			</div>
 		</div>
 	</div>

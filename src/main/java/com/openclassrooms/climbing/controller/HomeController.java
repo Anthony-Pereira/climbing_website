@@ -25,5 +25,15 @@ public class HomeController {
 
 		return new ModelAndView(viewName, model);
 	}
-	
+
+	@GetMapping("/mySpace")
+	public ModelAndView showMySpaceController() {
+
+		String viewName = "mySpace.html";
+
+		Map<String, Object> model = new HashMap<String, Object>();
+
+		return new ModelAndView(viewName, model);
+	}
+
 }

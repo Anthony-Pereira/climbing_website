@@ -15,54 +15,61 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.openclassrooms.climbing.dao.SiteRepository;
 import com.openclassrooms.climbing.dao.TopoRepository;
+import com.openclassrooms.climbing.entities.Site;
 import com.openclassrooms.climbing.entities.Topo;
 
 @Controller
 public class TopoController {
-	
+
 	@Autowired
 	TopoRepository topoRepository;
-	
-	@GetMapping ("/mySpace")
-	public ModelAndView showTopoController (Model topoObject,@RequestParam (name="page", defaultValue="0") int page) {
-				
-		Page<Topo> pageTopo=topoRepository.findAll(PageRequest.of(page,5));
-		topoObject.addAttribute("listTopo",pageTopo.getContent());
-		topoObject.addAttribute("pageNumber",new int [pageTopo.getTotalPages()]);
-		topoObject.addAttribute("currentPage",page);	
-		
-		String viewName = "mySpace.html";
-		
-		Map<String,Object> model = new HashMap<String,Object>();
+
+	@Autowired
+	SiteRepository siteRepository;
+
+	@GetMapping("/topoForm")
+	public ModelAndView showTopoController(Model topoObject,
+			@RequestParam(name = "page", defaultValue = "0") int page){
+
+		Page<Topo> pageTopo = topoRepository.findAll(PageRequest.of(page, 5));
+
+		topoObject.addAttribute("listTopo", pageTopo.getContent());
+		topoObject.addAttribute("pageNumber", new int[pageTopo.getTotalPages()]);
+		topoObject.addAttribute("currentPage", page);
+
+		String viewName = "topoForm.html";
+
+		Map<String, Object> model = new HashMap<String, Object>();
 		model.put("topoObject", new Topo());
-		
-		return new ModelAndView(viewName,model);
+
+		return new ModelAndView(viewName, model);
 	}
-	
-	@PostMapping ("/mySpace")
+
+	@PostMapping("/topoForm")
 	public ModelAndView addTopoController(Topo topoObject) {
-		
+
 		topoRepository.save(topoObject);
-		
+
 		RedirectView redirect = new RedirectView();
-		redirect.setUrl("/mySpace");
-		
+		redirect.setUrl("/topoForm");
+
 		return new ModelAndView(redirect);
 	}
-	
-	@GetMapping("/delete")
-	public ModelAndView deleteTopoController(Integer id,Integer currentPage) {
-		
-		topoRepository.deleteById(id);
-		
-		Map<String,Object> model = new HashMap<String,Object>();
-		model.put("topoObject",new Topo());
-		
+
+	@GetMapping("/topoDelete")
+	public ModelAndView deleteMySpaceController(Integer id,Integer currentPage) {
+
+		topoRepository.deleteById(id);	
+
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("topoObject", new Topo());
+
 		RedirectView redirect = new RedirectView();
-		redirect.setUrl("/mySpace");
-		
-		return new ModelAndView(redirect,model);
+		redirect.setUrl("/topoForm");
+
+		return new ModelAndView(redirect, model);
 	}
 
 }
