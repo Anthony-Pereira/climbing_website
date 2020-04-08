@@ -11,27 +11,26 @@ public class Comment {
 	
 	public Comment() {};
 	
-	public Comment(Integer id, String title_comment, String message, User user) {
+	public Comment(Long id, String titleComment, String message) {
 		super();
 		this.id = id;
-		this.titleComment = title_comment;
+		this.titleComment = titleComment;
 		this.message = message;
-		this.user = user;
 	}
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String titleComment;
 	private String message;
 	
 	@ManyToOne
 	private User user;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitle_comment() {

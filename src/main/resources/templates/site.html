@@ -20,58 +20,51 @@
 
 	<div class="container">
 		<div class="jumbotron mb-5">
-			<h1 class="mb-5">Liste Sites d'escalade</h1>
+			<h1 class="text-center mb-5">Liste des sites d'escalade</h1>
 
-			<!-- Example split danger button -->
-			<div class="btn-group">
-				<button type="button" class="btn btn-primary btn-lg">Site
-					d'escalade</button>
-				<button type="button"
-					class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="sr-only">Toggle Dropdown</span>
-				</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div>
+			<div class="d-flex justify-content-center">
+
+				<form class="form-inline" th:action="@{/site}" method="post"
+					th:object="${showSite}">
+					<div class="input-group mx-3 mb-3">
+						<div class="input-group-prepend">
+							<button class="btn btn-primary" type="submit">Site
+								d'escalade</button>
+						</div>
+						<select class="custom-select" th:field="*{titleSite}"
+							name="department" id="department">
+							<option th:each="i : ${#numbers.sequence(1, 101)}"
+								th:value="${i}" th:text="${i}"></option>
+						</select>
+					</div>
+					<div class="input-group mx-3 mb-3">
+						<div class="input-group-prepend">
+							<button class="btn btn-primary" type="submit">Département</button>
+						</div>
+						<select class="custom-select" th:field="*{department}"
+							name="department" id="department">
+							<option th:each="i : ${#numbers.sequence(1, 101)}"
+								th:value="${i}" th:text="${i}"></option>
+						</select>
+					</div>
+					<div class="input-group mx-3 mb-3">
+						<div class="input-group-prepend">
+							<button class="btn btn-primary" type="submit">Type</button>
+						</div>
+						<select class="custom-select" th:field="*{type}" name="type"
+							id="type">
+							<option value="Sites de blocs">Sites de blocs</option>
+							<option value="Sites de falaises">Sites de falaises</option>
+						</select>
+					</div>
+					<div class="row col-lg-12 d-flex justify-content-center mt-3">
+						<button class="btn btn-outline-secondary btn-lg " type="submit">validez</button>
+					</div>
+				</form>
 			</div>
-
-			<div class="btn-group">
-				<button type="button" class="btn btn-primary btn-lg">Département</button>
-				<button type="button"
-					class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="sr-only">Toggle Dropdown</span>
-				</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div>
-			</div>
-
-			<div class="btn-group">
-				<button type="button" class="btn btn-primary btn-lg">Type</button>
-				<button type="button"
-					class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="sr-only">Toggle Dropdown</span>
-				</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a> <a
-						class="dropdown-item" href="#">Another action</a> <a
-						class="dropdown-item" href="#">Something else here</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
-				</div>
-			</div>
-
+		</div>
+		<div>
+		blabla
 		</div>
 	</div>
 

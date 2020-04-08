@@ -1,6 +1,7 @@
 package com.openclassrooms.climbing.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,21 +25,38 @@ public class SiteController {
 	SiteRepository siteRepository;
 	
 	@GetMapping ("/site")
-	public ModelAndView showSiteHomeController () {
+	public ModelAndView showSiteHomeController (Model siteObject) {
 				
+		//List<Site> listSite=siteRepository.findAll();
+		//siteObject.addAttribute("listSiteByName", listSite);
+		
 		String viewName = "site.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
+		model.put("showSite", new Site());
 		
 		return new ModelAndView(viewName,model);
+	}
+	
+	@PostMapping ("/site")
+	public ModelAndView submitSiteHomeController (Site showSite) {
+
+		RedirectView redirect = new RedirectView();
+		redirect.setUrl("/site");
+		
+		return new ModelAndView(redirect);
 	}
 	
 	@GetMapping ("/siteSearchResult")
 	public ModelAndView showSiteSearchController (@RequestParam(name="keyWord",defaultValue="") String keyWord) {
 				
+		List<Site> listSiteSearch=siteRepository.findByTitleSiteContains(keyWord);
+		
 		String viewName = "siteSearch.html";
 		
 		Map<String,Object> model = new HashMap<String,Object>();
+		model.put("searchResult", listSiteSearch);
+		model.put("keyWord", keyWord); 
 		
 		return new ModelAndView(viewName,model);
 	}
@@ -71,7 +89,7 @@ public class SiteController {
 	}
 	
 	@GetMapping("/siteDelete")
-	public ModelAndView deleteSiteController(Integer id,Integer currentPage) {
+	public ModelAndView deleteSiteController(Long id,Integer currentPage) {
 		
 		siteRepository.deleteById(id);
 		

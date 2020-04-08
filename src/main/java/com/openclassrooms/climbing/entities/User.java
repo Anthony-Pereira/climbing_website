@@ -2,24 +2,26 @@ package com.openclassrooms.climbing.entities;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="web_user")
 public class User {
 	
 	public User() {};
-	
-	public User(Integer id, String name, String surname, String email, String password, Integer phone, String adress,
-			String city, Integer zip) {
+
+	public User(String name, String surname,
+			@Email @NotEmpty @Size(min = 2, max = 40, message = "Name must be between 2 and 40 characters long") String email,
+			String password, Integer phone, String adress, String city, Integer zip, Boolean active) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
@@ -28,36 +30,36 @@ public class User {
 		this.adress = adress;
 		this.city = city;
 		this.zip = zip;
+		this.active = active;
 	}
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	private String name="Anthony";
+	
+	private String name;
 	private String surname;
+	@Id
+	@Email
+	@NotEmpty
+	@Size(min=2,max=40,message="Name must be between 2 and 40 characters long")
+	@Column(unique=true)
 	private String email;
 	private String password;
 	private Integer phone;
 	private String adress;
 	private String city;
 	private Integer zip;
+	private Boolean active;
 	
 	@OneToMany(mappedBy="user")
-	private Collection<Comment> comments;
+	private Collection<Comment> comment;
 	
 	@ManyToMany
-	private Collection<Site> sites;
+	private Collection<Site> site;
 	
 	@ManyToMany
-	private Collection<Topo> topos;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	private Collection<Topo> topo;
+	
+	@ManyToMany
+	private Collection<Role> role;
 
 	public String getName() {
 		return name;
@@ -123,28 +125,12 @@ public class User {
 		this.zip = zip;
 	}
 
-	public Collection<Comment> getComments() {
-		return comments;
+	public Boolean getActive() {
+		return active;
 	}
 
-	public void setComments(Collection<Comment> comments) {
-		this.comments = comments;
-	}
-
-	public Collection<Site> getSites() {
-		return sites;
-	}
-
-	public void setSites(Collection<Site> sites) {
-		this.sites = sites;
-	}
-
-	public Collection<Topo> getTopos() {
-		return topos;
-	}
-
-	public void setTopos(Collection<Topo> topos) {
-		this.topos = topos;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 	
 }

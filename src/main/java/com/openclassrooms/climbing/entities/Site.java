@@ -4,16 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 
 @Entity
-@Inheritance
 public class Site {
 	
 	public Site () {};
 	
-	public Site(Integer id, Integer height, Integer numberOfWay, Integer quotation, Integer department,
-			Integer orientation, Boolean type, String titleSite, String description,
+	public Site(Long id, Integer height, Integer numberOfWay, String quotation, Integer department,
+			String orientation, String type, String titleSite, String description,
 			Boolean officielLesAmisDeLescalade) {
 		super();
 		this.id = id;
@@ -30,25 +28,24 @@ public class Site {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private Integer height;
 	private Integer numberOfWay;
-	private Integer quotation;
 	private Integer department;
-	private Integer orientation;
-
-	private Boolean type;
-
+	
+	private String quotation;
+	private String orientation;
+	private String type;
 	private String titleSite;
 	private String description;
 	
 	private Boolean officielLesAmisDeLescalade;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -68,11 +65,11 @@ public class Site {
 		this.numberOfWay = numberOfWay;
 	}
 
-	public Integer getQuotation() {
+	public String getQuotation() {
 		return quotation;
 	}
 
-	public void setQuotation(Integer quotation) {
+	public void setQuotation(String quotation) {
 		this.quotation = quotation;
 	}
 
@@ -84,19 +81,19 @@ public class Site {
 		this.department = department;
 	}
 
-	public Integer getOrientation() {
+	public String getOrientation() {
 		return orientation;
 	}
 
-	public void setOrientation(Integer orientation) {
+	public void setOrientation(String orientation) {
 		this.orientation = orientation;
 	}
 
-	public Boolean getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(Boolean type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

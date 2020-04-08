@@ -12,31 +12,46 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarHeader">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="site">Sites
-							d'escalade<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="association">Association</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="evenement">Evènements</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="contact">Contact</a>
-					</li>
-				</ul>
-				<div class="row form-inline mt-3">
-					<div class="col-lg-10">
+				<div class="form-inline mb-4">
+					<div class="mr-2">
 						<form th:action="@{/siteSearchResult}" method="get">
-							<label for="keyWord">Mot clé</label>
-							<input type="text" name="keyWord" id="keyword" class="form-control" placeholder="Rechercher">
-							<button class="btn btn-secondary" type="submit">
+							<label for="keyWord">Mot clé</label> <input type="search"
+								name="keyWord" id="keyword" class="form-control"
+								placeholder="Rechercher" th:value="${keyWord}" size=50 required>
+							<button class="btn btn-secondary my-1" type="submit">
 								<img alt="rechercher" src="img/magnifying_glass.png">
 							</button>
 						</form>
 					</div>
-					<div class="col-lg-2">
-						<a class="btn btn-secondary" href="showSignInForm"><img
-							alt="se connecter" src="img/logo_user.png"></a>
-					</div>
+				</div>
+				<div>
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item"><a class="nav-link" href="site">Sites</a></li>
+						<li class="nav-item"><a class="nav-link" href="association">Association</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="evenement">Evènements</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="contact">Contact</a>
+						</li>
+						<li class="nav-item"><a class="nav-link"
+							href="showSignInForm">Identifiez-vous</a></li>
+					</ul>
+				</div>
+				<div>
+					<ul class="nav nav-pills">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle"
+							id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"></a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="mySpace">My Space</a> <a
+									class="dropdown-item" href="siteForm">Mes sites</a> <a
+									class="dropdown-item" href="topoForm">Me topos</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Se deconnecter</a>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</nav>

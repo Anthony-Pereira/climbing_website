@@ -33,18 +33,18 @@
 						</div>
 					</div>
 					<form th:action="@{/showSignInForm}" method="post"
-						th:object="${climbingItem}">
+						th:object="${user}">
 						<div class="form-group">
-							<label for="email">Adresse email</label> <input type="email"
+							<label for="email">Adresse email</label> <input th:field="*{email}" type="email"
 								name="email" id="email" class="form-control"
 								aria-describedby="emailHelp"
-								placeholder="Entre votre adresse email">
+								placeholder="Entre votre adresse email" required>
 						</div>
 						<div class="form-group">
-							<label for="password">Mot de passe</label> <input type="password"
+							<label for="password">Mot de passe</label> <input th:field="*{password}" type="password"
 								name="password" id="password" class="form-control"
 								aria-describedby="emailHelp"
-								placeholder="Entrez votre mot de passe">
+								placeholder="Entrez votre mot de passe" required>
 						</div>
 						<div class="form-group">
 							<p class="text-center">

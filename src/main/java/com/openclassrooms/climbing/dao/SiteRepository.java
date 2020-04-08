@@ -6,8 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.openclassrooms.climbing.entities.Site;
 
-public interface SiteRepository extends JpaRepository <Site,Integer> {
+public interface SiteRepository extends JpaRepository <Site,Long> {
 
-	//@Query("SELECT titleSite,department,type,officielLesAmisDeLescalade") A tester si meilleur
 	public List<Site> findByTitleSiteContains(String keyWord); //if Page to pageable take spring.data.domain
+	
+	// public List<Site> findByTitleSiteOrDepartmentOrType(String name,Integer department,String type); //if Page to pageable take spring.data.domain
+	
 }

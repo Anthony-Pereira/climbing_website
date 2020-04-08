@@ -1,7 +1,6 @@
 package com.openclassrooms.climbing.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.openclassrooms.climbing.dao.SiteRepository;
 import com.openclassrooms.climbing.dao.TopoRepository;
-import com.openclassrooms.climbing.entities.Site;
 import com.openclassrooms.climbing.entities.Topo;
 
 @Controller
@@ -59,7 +57,7 @@ public class TopoController {
 	}
 
 	@GetMapping("/topoDelete")
-	public ModelAndView deleteMySpaceController(Integer id,Integer currentPage) {
+	public ModelAndView deleteMySpaceController(Long id,Integer currentPage) {
 
 		topoRepository.deleteById(id);	
 

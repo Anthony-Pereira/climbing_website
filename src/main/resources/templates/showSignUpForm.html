@@ -34,28 +34,30 @@
 				th:object="${user}">
 				<div class="row mt-5">
 					<div class="form-group col-lg-6">
-						<label for="exampleInputEmail1">Prénom</label> <input
-							th:field="*{name}" type="text" name="firstname"
-							class="form-control" id="firstname" aria-describedby="emailHelp"
-							placeholder="Entrez votre prénom">
+						<label for="firstnam">Prénom</label> <input th:field="*{name}"
+							type="text" name="firstname" class="form-control" id="firstname"
+							aria-describedby="firstname" placeholder="Entrez votre prénom"
+							required> <span class="text-danger" th:errors="*{name}"></span>
 					</div>
 					<div class="form-group col-lg-6">
-						<label for="exampleInputEmail1">Nom</label> <input
-							th:field="*{surname}" type="text" name="lastname"
-							class="form-control" id="lastname" aria-describedby="emailHelp"
-							placeholder="Entrez votre nom">
+						<label for="lastname">Nom</label> <input th:field="*{surname}"
+							type="text" name="lastname" class="form-control" id="lastname"
+							aria-describedby="lastname" placeholder="Entrez votre nom"
+							required> <span class="text-danger" th:errors="*{surname}"></span>
 					</div>
 					<div class="form-group col-lg-6">
-						<label for="exampleInputEmail1">Adresse email</label> <input
+						<label for="email">Adresse email</label> <input
 							th:field="*{email}" type="email" name="email"
-							class="form-control" id="email" aria-describedby="emailHelp"
-							placeholder="Entrez votre email">
+							class="form-control" id="email" aria-describedby="email"
+							placeholder="Entrez votre email" required> <span class="text-danger"
+							th:errors="*{email}"></span>
 					</div>
 					<div class="form-group col-lg-6">
-						<label for="exampleInputEmail1">Mot de passe</label> <input
+						<label for="password">Mot de passe</label> <input
 							th:field="*{password}" type="password" name="password"
-							id="password" class="form-control" aria-describedby="emailHelp"
-							placeholder="Entrez un mot de passe">
+							id="password" class="form-control" aria-describedby="password"
+							placeholder="Entrez un mot de passe" required> <span class="text-danger"
+							th:errors="*{password}"></span>
 					</div>
 					<div class="col-md-12 text-center my-3">
 						<button type="submit"
@@ -64,10 +66,12 @@
 				</div>
 			</form>
 			<div class="col-md-12 ">
-				<p class="text-center">
-					Vous possédez déjà un compte ?<a href="showSignInForm" id="signin">
-						Identifiez-vous</a>
-				</p>
+				<div>
+					<p class="text-center">
+						Vous possédez déjà un compte ?<a href="showSignInForm" id="signin">
+							Identifiez-vous</a>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>

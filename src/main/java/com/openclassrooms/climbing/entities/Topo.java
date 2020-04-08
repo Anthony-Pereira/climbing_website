@@ -13,7 +13,7 @@ public class Topo {
 	
 	public Topo() {};
 	
-	public Topo(Integer id, String titleTopo, String description, String location, String releaseDate,
+	public Topo(Long id, String titleTopo, String description, String location, String releaseDate,
 			Boolean available) {
 		super();
 		this.id = id;
@@ -26,20 +26,20 @@ public class Topo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String titleTopo;
 	private String description;
 	private String location;
 	private String releaseDate;
 	private Boolean available;
 	
-	@ManyToMany(mappedBy="topos")
-	private Collection<User> users;
+	@ManyToMany(mappedBy="topo")
+	private Collection<User> user;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitleTopo() {

@@ -22,7 +22,7 @@
 	<header th:replace="fragments/header :: header"></header>
 	<!-- header -->
 	<div class="row m-3">
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 			<h3 class="text-center text-dark mb-4">Ajouter un site</h3>
 
 			<form th:action="@{/siteForm}" method="post"
@@ -31,7 +31,7 @@
 				<div class="mr-3 my-2">
 					<label for="titleSite">Titre</label> <input th:field="*{titleSite}"
 						type="text" name="titleSite" class="form-control" id="titleSite"
-						aria-describedby="emailHelp" placeholder="Insérer le titre">
+						aria-describedby="titleSite" placeholder="Insérez le titre" required>
 				</div>
 				<div class="row">
 
@@ -41,71 +41,72 @@
 							id="department">
 							<option th:each="i : ${#numbers.sequence(1, 101)}"
 								th:value="${i}" th:text="${i}"></option>
-						</select> 
-						<label class="mt-2" for="type">type</label> <select
+						</select> <label class="mt-2" for="type">type</label> <select
 							class="form-control" th:field="*{type}" name="type" id="type">
-							<option value="0">Sites de blocs</option>
-							<option value="1">Sites de falaises</option>
+							<option value="Sites de blocs">Sites de blocs</option>
+							<option value="Sites de falaises">Sites de falaises</option>
+						</select> <label class="mt-2" for="orientation">Orientation</label> <select
+							class="form-control" th:field="*{orientation}" name="orientation"
+							id="orientation">
+							<option value="Toutes">Toutes</option>
+							<option value="Nord">Nord</option>
+							<option value="Sud">Sud</option>
+							<option value="Est">Est</option>
+							<option value="Ouest">Ouest</option>
 						</select>
 					</div>
 
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-						<label class="mt-2" for="height">Hauteur</label> <select
-							class="form-control" th:field="*{height}" name="height"
-							id="height">
+						<label for="height">Hauteur</label> <select class="form-control"
+							th:field="*{height}" name="height" id="height">
 							<option th:each="i : ${#numbers.sequence(1, 1000)}"
 								th:value="${i}" th:text="${i}"></option>
-						</select> 
-						<label for="orientation">Orientation</label> <select
-							class="form-control" th:field="*{orientation}" name="orientation"
-							id="orientation">
-							<option value="0">Toutes</option>
-							<option value="1">Nord</option>
-							<option value="2">Sud</option>
-							<option value="3">Est</option>
-							<option value="4">Ouest</option>
-						</select> 
-						<label class="mt-2" for="quotation">Cotation</label> <select
+						</select> <label class="mt-2" for="numberOfWay">Nombre de voie</label> <select
+							class="form-control" th:field="*{numberOfWay}" name="numberOfWay"
+							id="numberOfWay">
+							<option th:each="i : ${#numbers.sequence(1, 50)}" th:value="${i}"
+								th:text="${i}"></option>
+						</select> <label class="mt-2" for="quotation">Cotation</label> <select
 							class="form-control" th:field="*{quotation}" name="quotation"
 							id="quotation">
 							<option value="0">1</option>
 							<option value="1">2</option>
 							<option value="2">3</option>
 							<option value="3">4</option>
-							<option value="4">5A</option>
-							<option value="5">5B</option>
-							<option value="6">5C</option>
-							<option value="7">6A</option>
-							<option value="8">6A+</option>
-							<option value="9">6B</option>
-							<option value="10">6B+</option>
-							<option value="11">6C</option>
-							<option value="12">6C+</option>
-							<option value="13">7A</option>
-							<option value="14">7A+</option>
-							<option value="15">7B</option>
-							<option value="16">7B+</option>
-							<option value="17">7C</option>
-							<option value="18">7C+</option>
-							<option value="19">8A</option>
-							<option value="20">8A+</option>
-							<option value="21">8B</option>
-							<option value="22">8B+</option>
-							<option value="23">8C</option>
-							<option value="24">8C+</option>
-							<option value="25">9A</option>
-							<option value="26">9A+</option>
-							<option value="27">9B</option>
-							<option value="28">9B+</option>
-							<option value="29">9C</option>
+							<option value="5A">5A</option>
+							<option value="5B">5B</option>
+							<option value="5C">5C</option>
+							<option value="6A">6A</option>
+							<option value="6A+">6A+</option>
+							<option value="6B">6B</option>
+							<option value="6B+">6B+</option>
+							<option value="6C">6C</option>
+							<option value="6C+">6C+</option>
+							<option value="7A">7A</option>
+							<option value="7A+">7A+</option>
+							<option value="7B">7B</option>
+							<option value="7B+">7B+</option>
+							<option value="7C">7C</option>
+							<option value="7C+">7C+</option>
+							<option value="8A">8A</option>
+							<option value="8A+">8A+</option>
+							<option value="8B">8B</option>
+							<option value="8B+">8B+</option>
+							<option value="8C">8C</option>
+							<option value="8C+">8C+</option>
+							<option value="9A">9A</option>
+							<option value="9A+">9A+</option>
+							<option value="9B">9B</option>
+							<option value="9B+">9B+</option>
+							<option value="9C">9C</option>
 						</select>
 					</div>
 				</div>
 				<div>
 					<label class="mt-2" for="description">Description</label>
 					<textarea rows="5" th:field="*{description}" class="form-control"
-						id="description" name="description" aria-describedby="emailHelp"
-						placeholder="il était une fois ...">>
+						id="description" name="description" aria-describedby="description"
+						placeholder="Inserez votre description" required>
 							</textarea>
 				</div>
 
@@ -115,7 +116,7 @@
 			</form>
 		</div>
 
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 			<table class="table">
 				<caption class="text-center text-dark mb-4" id="caption">Liste
 					de mes sites</caption>
@@ -125,10 +126,10 @@
 						<th>Titre</th>
 						<th>Departement</th>
 						<th>Type</th>
-						<th>Hauteur</th>
-						<th>Nombre de voies</th>
-						<th>Cotation</th>
 						<th>Orientation</th>
+						<th>Hauteur</th>
+						<th>Voie</th>
+						<th>Cotation</th>
 						<th>Description</th>
 						<th></th>
 					</tr>
@@ -139,10 +140,10 @@
 						<td th:text="${s.titleSite}">Titre du site</td>
 						<td th:text="${s.department}">Departement</td>
 						<td th:text="${s.type}">Type</td>
+						<td th:text="${s.orientation}">Orientation</td>
 						<td th:text="${s.height}">Hauteur</td>
 						<td th:text="${s.numberOfWay}">Nombre de voie</td>
 						<td th:text="${s.quotation}">Cotation</td>
-						<td th:text="${s.orientation}">Orientation</td>
 						<td th:text="${s.description}">Description</td>
 						<td class=" d-flex justify-content-center"><a
 							onclick="return confirm('Êtes-vous sûre de vouloir supprimer le site enregistré ?')"

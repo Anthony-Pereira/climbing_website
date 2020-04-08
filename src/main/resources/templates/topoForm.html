@@ -23,7 +23,7 @@
 	<!-- header -->
 
 	<div class="row m-3">
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 			<h3 class="text-center text-dark mb-4">Ajouter un topo</h3>
 			<form th:action="@{/topoForm}" method="post"
 				th:object="${topoObject}">
@@ -31,26 +31,26 @@
 					<div class="mr-3 my-2">
 						<label for="titleTopo">Titre</label> <input
 							th:field="*{titleTopo}" type="text" name="titleTopo"
-							class="form-control" id="titleTopo" aria-describedby="emailHelp"
-							placeholder="Insérer le titre">
+							class="form-control" id="titleTopo" aria-describedby="titleTopo"
+							placeholder="Insérer le titre" required>
 					</div>
 					<div class="mr-3 my-2">
 						<label for="location">Lieu</label> <input th:field="*{location}"
 							type="text" name="location" class="form-control" id="location"
-							aria-describedby="emailHelp" placeholder="insérer le lieu">
+							aria-describedby="location" placeholder="insérer le lieu" required>
 					</div>
 					<div class="mr-3 my-2">
 						<label for="releaseDate">Date de parution</label> <input
-							th:field="*{releaseDate}" type="text" name="releaseDate"
+							th:field="*{releaseDate}" type="date" name="releaseDate"
 							id="releaseDate" class="form-control"
-							aria-describedby="emailHelp" placeholder="ex: 01/01/2000">
+							aria-describedby="releaseDate" placeholder="ex: 01/01/2000" required>
 					</div>
 				</div>
 				<div class="form-row my-2">
 					<label for="description">Description</label>
-					<textarea rows="5" th:field="*{description}" type="text"
+					<textarea rows="5" th:field="*{description}"
 						name="description" class="form-control" id="description"
-						aria-describedby="emailHelp" placeholder="il était une fois ...">>
+						aria-describedby="description" placeholder="Inserez votre description" required>
 							</textarea>
 				</div>
 				<div class="xs-12 sm-12 md-12 lg-12 text-center my-3">
@@ -58,7 +58,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 			<table class="table">
 				<caption class="text-center text-dark mb-4" id="caption">Liste
 					de mes topos</caption>
